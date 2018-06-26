@@ -1,0 +1,39 @@
+.header {
+    background-color: blueviolet;
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99;;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+}
+.logo a {
+    text-decoration: none;
+    color: #fff;
+}
+.items ul {
+    display: flex;
+    list-style-type: none;
+}
+.items ul li {
+    padding: 0 15px;
+}
+.items ul li a {
+    text-decoration: none;
+    color: #fff;
+}
