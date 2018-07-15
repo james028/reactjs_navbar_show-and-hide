@@ -1,46 +1,48 @@
 import React, { Component } from 'react';
+import logo from './logo.svg';
 import './App.css';
-import Toolbar from './components/toolbar/toolbar'
-import ToolbarDrawer from './components/toolbardr/toolbardr'
-import Backdrop from './components/toolbardr/backdrop'
+import NavbarDrawer from './components/navbardrawer';
+import DrawerLeft from './components/drawerleft';
+import MenuBack from './components/menuback';
 
 
 class App extends Component {
 
   state = {
-    isDrawe: false
+    isShow: false
   };
 
-  drawerToggle = () => {
+  handleClickShow = () => {
     this.setState((prevState) => {
-      return { isDrawe: !prevState.isDrawe };
+      return {isShow: !prevState.isShow};
     });
+    console.log("ttest");
   }
 
-  backdropHandler = () => {
+  handleClose = () => {
     this.setState({
-      isDrawe: false
-    });
+      isShow: false
+    })
   }
-
+  
 
   render() {
-    let tooldrawer;
-    let backdrop;
+    let drawerleft;
+    let menuback;
 
-    if(this.state.isDrawe) {
-      tooldrawer = <ToolbarDrawer isClose={this.backdropHandler}/>;
-      backdrop = <Backdrop isBackDrop={this.backdropHandler}/>
+    if(this.state.isShow) {
+      drawerleft = <DrawerLeft clickClose={this.handleClose} showTransform={this.state.isShow}/>;
+      menuback = <MenuBack clicktoClose={this.handleClickShow}/>;
     }
 
     return (
       <div className="App">
-        <Toolbar drawClick={this.drawerToggle}/>
-        {tooldrawer}
-        {backdrop}
-        <main style={{marginTop: '70px'}}>
-          <p>this is page</p>
-        </main>
+        <NavbarDrawer clicktoClose={this.handleClickShow}/>
+        {drawerleft}
+        {menuback}
+        <div style={{marginTop: '70px'}}>
+          <p>test layout</p>
+        </div>
       </div>
     );
   }
